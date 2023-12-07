@@ -1,5 +1,6 @@
 <form wire:submit.prevent="submit" class="pt-3">
 
+
     <div class="form-group {{ $errors->has('process.name') ? 'invalid' : '' }}">
         <label class="form-label required" for="name">{{ trans('cruds.process.fields.name') }}</label>
         <input class="form-control" type="text" name="name" id="name" wire:model.defer="process.name">
@@ -10,6 +11,7 @@
             {{ trans('cruds.process.fields.name_helper') }}
         </div>
     </div>
+
     <div class="form-group {{ $errors->has('process.owner_id') ? 'invalid' : '' }}">
         <label class="form-label" for="owner">{{ trans('cruds.process.fields.owner') }}</label>
         <x-select-list class="form-control" id="owner" name="owner" :options="$this->listsForFields['owner']"
@@ -405,4 +407,5 @@
         <button class="px-4 py-2 text-sm font-medium btn btn-indigo" wire:click.prevent="addtest_array()">+ Agregar
             arrat</button>
     </div> --}}
+
 </form>

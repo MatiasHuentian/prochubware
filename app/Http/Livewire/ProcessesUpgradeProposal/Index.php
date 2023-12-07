@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\ProcessesUpgradeProposal;
+namespace App\Http\Livewire\ProcessesUpgradeProposal;
 
 use App\Http\Livewire\WithConfirmation;
 use App\Http\Livewire\WithSorting;

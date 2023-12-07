@@ -30,7 +30,7 @@ class Create extends Component
 {
     public Process $process;
 
-    public array $test_arr = [];
+    // public array $test_arr = [];
     // public function addtest_array(){
     //     $this->test_arr[]=[];
     //     $last_id = array_key_last($this->test_arr);
