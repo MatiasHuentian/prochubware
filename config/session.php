@@ -18,7 +18,7 @@ return [
     |
     */
 
-    'driver' => env('SESSION_DRIVER', 'database'),
+    'driver' => env('SESSION_DRIVER', 'file'),
 
     /*
     |--------------------------------------------------------------------------
@@ -208,7 +208,7 @@ return [
     | when flagged "secure" and the Same-Site attribute is set to "none".
     |
     */
-
+    // >>Versión del jetstream
     'partitioned' => false,
 
 ];
