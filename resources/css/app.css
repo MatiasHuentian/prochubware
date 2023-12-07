@@ -1,9 +1,19 @@
+/* Importar otros estilos de CSS */
+@import "theme.css";
+
+/* Importar select2 desde el módulo (si está disponible) */
+@import "select2/dist/css/select2.min.css";
+
+/* Importar select.css desde tu proyecto si es un archivo local */
+@import "select.css";
+
+/* Importar dropzone desde el módulo (si está disponible) */
+@import "dropzone/dist/dropzone.css";
+
+/* Importar flatpickr desde el módulo (si está disponible) */
+@import "flatpickr/dist/flatpickr.min.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import "theme.css";
-@import "~select2/dist/css/select2.min.css";
-@import "select.css";
-@import "~dropzone/dist/dropzone.css";
-@import "~flatpickr/dist/flatpickr.min.css";

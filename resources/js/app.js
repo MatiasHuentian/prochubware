@@ -4,7 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap')
+// require('./bootstrap')
+import './bootstrap';
 
 /* Sidebar - Side navigation menu on mobile/responsive mode */
 window.toggleNavbar = function (collapseID) {

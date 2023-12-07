@@ -1,3 +1,8 @@
+
+body {
+    background-color: red;
+}
+
 .row {
     margin-bottom: 3rem;
     width: 100%;
@@ -1440,7 +1445,7 @@ button,
  * as it triggers the better focus styles even for links, which still use a dotted
  * outline in Firefox by default.
  */
- 
+
 :-moz-focusring {
 	outline: auto;
 }
@@ -1507,14 +1512,14 @@ samp {
  *    CSS Remedy, with `svg` added as well.
  *
  *    https://github.com/mozdevs/cssremedy/issues/14
- * 
+ *
  * 2. Add `vertical-align: middle` to align replaced elements more
  *    sensibly by default when overriding `display` by adding a
  *    utility like `inline`.
  *
  *    This can trigger a poorly considered linting error in some
  *    tools but is included by design.
- * 
+ *
  *    https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210
  */
 
@@ -1644,7 +1649,7 @@ select {
 	background-size: 1.5em 1.5em;
 	padding-right: 2.5rem;
 	-webkit-print-color-adjust: exact;
-	        color-adjust: exact;
+	        print-color-adjust: exact;
 }
 
 [multiple] {
@@ -1654,7 +1659,7 @@ select {
 	background-size: initial;
 	padding-right: 0.75rem;
 	-webkit-print-color-adjust: unset;
-	        color-adjust: unset;
+	        print-color-adjust: unset;
 }
 
 
@@ -1666,7 +1671,7 @@ select {
 	        appearance: none;
 	padding: 0;
 	-webkit-print-color-adjust: exact;
-	        color-adjust: exact;
+    print-color-adjust: exact;
 	display: inline-block;
 	vertical-align: middle;
 	background-origin: border-box;
