@@ -534,8 +534,16 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => 131,
                 'title' => 'processes_kpi_access',
             ],
+            [
+                'id' => 132,
+                'title' => 'admin_panel_access'
+            ]
         ];
-
-        Permission::insert($permissions);
+        foreach ($permissions as $permission) {
+            Permission::updateOrCreate(
+                ['id' => $permission['id']],
+                ['title' => $permission['title']]
+            );
+        }
     }
 }

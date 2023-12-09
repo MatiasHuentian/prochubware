@@ -21,6 +21,7 @@ use App\Models\ActivitiesRisksPolitic;
 use App\Models\RisksControlsFrecuency;
 use App\Models\ActivitiesRisksProbability;
 use App\Models\AttachmentsCategory;
+use App\Models\Direction;
 use App\Models\RisksControl;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\Rule;
@@ -36,6 +37,10 @@ class Create extends Component
     //     $last_id = array_key_last($this->test_arr);
     //     $this->dispatchBrowserEvent('reApplyDropzone_'.$last_id);
     // }
+
+    public $directions;
+    public $dependencies;
+    public $selectedDirection;
 
     public array $input = [];
     public array $inputs = [];
@@ -197,6 +202,11 @@ class Create extends Component
                 'string',
                 'nullable',
             ],
+            'selectedDirection' => [
+                'integer',
+                'exists:directions,id',
+                'required',
+            ],
             'process.dependency_id' => [
                 'integer',
                 'exists:dependencies,id',
@@ -315,7 +325,6 @@ class Create extends Component
     protected function initListsForFields(): void
     {
         $this->listsForFields['owner']              = User::pluck('name', 'id')->toArray();
-        $this->listsForFields['dependency']         = Dependency::pluck('name', 'id')->toArray();
         $this->listsForFields['state']              = ProcessesState::pluck('name', 'id')->toArray();
         $this->listsForFields['glosaries']          = Glossary::with('processes')->get();
         $this->listsForFields['glosary']            = $this->listsForFields['glosaries']->pluck('term', 'id')->toArray();
@@ -337,6 +346,15 @@ class Create extends Component
         $this->listsForFields['type']               = RisksControlsType::pluck('name', 'id')->toArray();
 
         $this->listsForFields['category']           = AttachmentsCategory::pluck('name', 'id')->toArray();
+
+        $this->listsForFields['direction']           = Direction::pluck('name', 'id')->toArray();
+        $this->listsForFields['dependency']           = "";
+    }
+
+    public function updatedSelectedDirection($direction)
+    {
+        $this->listsForFields['dependency'] = Dependency::where('direction_id' , '=' , $direction)->pluck('name' , 'id')->toArray();
+        // $this->selectedDe = $direction;
     }
 
     public function select_glosary()

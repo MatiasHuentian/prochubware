@@ -16,10 +16,25 @@ class UsersTableSeeder extends Seeder
                 'email'          => 'admin@admin.com',
                 'password'       => bcrypt('password'),
                 'remember_token' => null,
-                'locale'         => '',
+                'locale'         => 'es',
             ],
         ];
+        if (User::where( 'id' , '=' , 1)->count() < 1) {
+            User::insert($users);
+        }
 
-        User::insert($users);
+        $users = [
+            [
+                'id'             => 2,
+                'name'           => 'Usuario prueba',
+                'email'          => 'usuario@test.com',
+                'password'       => bcrypt('password'),
+                'remember_token' => null,
+                'locale'         => 'es',
+            ],
+        ];
+        if (User::where( 'id' , '=' , 2)->count() < 1) {
+            User::insert($users);
+        }
     }
 }

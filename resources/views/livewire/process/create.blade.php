@@ -33,7 +33,38 @@
             {{ trans('cruds.process.fields.objective_helper') }}
         </div>
     </div>
-    <div class="form-group {{ $errors->has('process.dependency_id') ? 'invalid' : '' }}">
+
+    <div>
+        <div class="form-group row">
+            <label for="selectedDirection" class="col-md-4 col-form-label text-md-right  required">{{ __('Dirección') }}</label>
+            <div class="col-md-6 ">
+                <x-select-list class="form-control" required id="selectedDirection" name="selectedDirection" :options="$listsForFields['direction']"
+                        wire:model="selectedDirection" />
+            </div>
+        </div>
+
+        @if (!is_null($selectedDirection))
+            <div class="form-group row">
+                <div class="form-group {{ $errors->has('process.dependency_id') ? 'invalid' : '' }}">
+                    <label class="form-label required" for="dependency">{{ trans('cruds.process.fields.dependency') }}</label>
+                </div>
+                <div class="col-md-6">
+                    <x-select-list-v2 class="form-control" required id="dependency" name="dependency" :options="$listsForFields['dependency']"
+                        wire:model="process.dependency_id" />
+                </div>
+                <div class="validation-message">
+                    {{ $errors->first('process.dependency_id') }}
+                </div>
+                <div class="help-block">
+                    {{ trans('cruds.process.fields.dependency_helper') }}
+                </div>
+            </div>
+        @endif
+    </div>
+
+
+    {{-- <livewire:direcion-dependency/> --}}
+    {{-- <div class="form-group {{ $errors->has('process.dependency_id') ? 'invalid' : '' }}">
         <label class="form-label required" for="dependency">{{ trans('cruds.process.fields.dependency') }}</label>
         <x-select-list class="form-control" required id="dependency" name="dependency" :options="$this->listsForFields['dependency']"
             wire:model="process.dependency_id" />
@@ -43,7 +74,8 @@
         <div class="help-block">
             {{ trans('cruds.process.fields.dependency_helper') }}
         </div>
-    </div>
+    </div> --}}
+
     <div class="form-group {{ $errors->has('process.state_id') ? 'invalid' : '' }}">
         <label class="form-label required" for="state">{{ trans('cruds.process.fields.state') }}</label>
         <x-select-list class="form-control" required id="state" name="state" :options="$this->listsForFields['state']"

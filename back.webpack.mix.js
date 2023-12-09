@@ -1,4 +1,4 @@
-const mix = require('laravel-mixasdasdasdasdasdasda');
+const mix = require('laravel-mix');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,7 +12,7 @@ const mix = require('laravel-mixasdasdasdasdasdasda');
  */
 mix.disableNotifications();
 
-mix.js('resources/js/app.jsasdasdasda', 'public/jsasdasdasdas')
-    .postCss('resources/css/app.csssdasdasdsadasd', 'public/cssasdasdasdad', [
-        require("tailwindcssasdasdasd")
+mix.js('resources/js/app.js', 'public/js')
+    .postCss('resources/css/app.css', 'public/css', [
+        require("tailwindcss")
     ]);
