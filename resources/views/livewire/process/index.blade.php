@@ -146,6 +146,11 @@
                                             {{ trans('global.delete') }}
                                         </button>
                                     @endcan
+                                    @can('process_export_pdf')
+                                        <a class="btn btn-sm btn-success mr-2" href="{{ route('admin.processes.pdf.export', $process) }}">
+                                            {{ __('PDF') }}
+                                        </a>
+                                    @endcan
                                 </div>
                             </td>
                         </tr>

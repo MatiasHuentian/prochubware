@@ -537,6 +537,10 @@ class PermissionsTableSeeder extends Seeder
             [
                 'id' => 132,
                 'title' => 'admin_panel_access'
+            ],
+            [
+                'id' => 133,
+                'title' => 'process_export_pdf'
             ]
         ];
         foreach ($permissions as $permission) {

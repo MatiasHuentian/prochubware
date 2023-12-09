@@ -8,6 +8,7 @@ use App\Models\Process;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
 class ProcessController extends Controller
 {
@@ -41,6 +42,16 @@ class ProcessController extends Controller
         $process->load('owner', 'dependency', 'state', 'glosary', 'input', 'output', 'objectiveGroup');
 
         return view('admin.process.show', compact('process'));
+    }
+
+    public function pdfexport(Process $process)
+    {
+        $process->load('owner', 'dependency', 'state', 'glosary', 'input', 'output', 'objectiveGroup');
+
+        $pdf = PDF::loadView('admin.process.pdf', compact('process'));
+        return $pdf->stream();
+
+        return view('admin.process.pdf_with_head', compact('process'));
     }
 
     public function __construct()
