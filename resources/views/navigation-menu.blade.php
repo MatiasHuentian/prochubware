@@ -16,6 +16,13 @@
                         {{ __('Panel de control') }}
                     </x-nav-link>
                 </div>
+                @can('guest_process_index')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link href="{{ route('guest.process.index') }}" :active="request()->routeIs('guest.process.index')">
+                            {{ __('Procesos') }}
+                        </x-nav-link>
+                    </div>
+                @endcan
 
             </div>
 
@@ -193,6 +200,14 @@
                         <a href="{{ route('admin.home') }}">
                             <i class="fa-fw c-sidebar-nav-icon fas fa-user-circle"></i>
                             Panel de administración
+                        </a>
+                    </li>
+                @endcan
+                @can('guest_process_index')
+                    <li class="items-center">
+                        <a href="{{ route('guest.process.index') }}">
+                            <i class="fa-fw c-sidebar-nav-icon fas fa-user-circle"></i>
+                            Procesos
                         </a>
                     </li>
                 @endcan

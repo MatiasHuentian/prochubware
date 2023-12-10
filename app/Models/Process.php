@@ -154,4 +154,25 @@ class Process extends Model
     {
         return $this->hasMany(Attachment::class, 'process_id', 'id');
     }
+
+    // Scopes
+    public function scopeOnlyActives( $query ,  $bool )
+    {
+        if ($bool) {
+            return $query->where('state_id' , '=' , '2')
+            ->whereDate('end_date', '>', Carbon::now() );
+        }
+    }
+
+    public function scopeDireccionDependency( $query , $direction , $dependency ){
+        if( $direction){
+            $query->whereHas('dependency' , function($query)use($direction){
+                return $query->where('direction_id' , '=' ,  $direction );
+            });
+        }
+        if( $dependency){
+            $query->where('dependency_id' ,'=' , $dependency);
+        }
+        return $query;
+    }
 }

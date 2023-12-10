@@ -38,8 +38,6 @@ class Create extends Component
     //     $this->dispatchBrowserEvent('reApplyDropzone_'.$last_id);
     // }
 
-    public $directions;
-    public $dependencies;
     public $selectedDirection;
 
     public array $input = [];

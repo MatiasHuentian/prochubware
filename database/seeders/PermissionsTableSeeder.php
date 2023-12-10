@@ -541,6 +541,10 @@ class PermissionsTableSeeder extends Seeder
             [
                 'id' => 133,
                 'title' => 'process_export_pdf'
+            ],
+            [
+                'id' => 134,
+                'title' => 'guest_process_index'
             ]
         ];
         foreach ($permissions as $permission) {
