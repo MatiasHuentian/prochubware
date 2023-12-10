@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\output>
  */
-class OutputsFactory extends Factory
+class OutputFactory extends Factory
 {
     public function definition()
     {
