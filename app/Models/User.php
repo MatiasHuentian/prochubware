@@ -107,7 +107,7 @@ class User extends Authenticatable
 
     public function preferredLocale()
     {
-        return $this->locale;
+        return $this->locale ?? 'es';
     }
 
     protected function serializeDate(DateTimeInterface $date)

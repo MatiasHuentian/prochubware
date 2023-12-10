@@ -1,7 +1,7 @@
 <div>
     <div class="card-controls sm:flex">
         <div class="w-full sm:w-1/2">
-            Per page:
+            por pág.:
             <select wire:model="perPage" class="form-select w-full sm:w-1/6">
                 @foreach($paginationOptions as $value)
                     <option value="{{ $value }}">{{ $value }}</option>
@@ -10,7 +10,7 @@
 
             @can('risks_controls_frecuency_delete')
                 <button class="btn btn-rose ml-3 disabled:opacity-50 disabled:cursor-not-allowed" type="button" wire:click="confirm('deleteSelected')" wire:loading.attr="disabled" {{ $this->selectedCount ? '' : 'disabled' }}>
-                    {{ __('Delete Selected') }}
+                    {{ __('Eliminar seleccionadas') }}
                 </button>
             @endcan
 
@@ -27,7 +27,7 @@
 
         </div>
         <div class="w-full sm:w-1/2 sm:text-right">
-            Search:
+            Buscar:
             <input type="text" wire:model.debounce.300ms="search" class="w-full sm:w-1/3 inline-block" />
         </div>
     </div>

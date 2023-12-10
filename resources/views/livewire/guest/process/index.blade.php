@@ -1,7 +1,7 @@
 <div>
     <div class="card-controls sm:flex">
         <div class="w-full sm:w-1/2">
-            Per page:
+            por pág.:
             <select wire:model="perPage" class="form-select w-full sm:w-1/6">
                 @foreach ($paginationOptions as $value)
                     <option value="{{ $value }}">{{ $value }}</option>
@@ -24,7 +24,7 @@
             @endif --}}
         </div>
         <div class="w-full sm:w-1/2 sm:text-right">
-            Search:
+            Buscar:
             <input type="text" wire:model.debounce.300ms="search" class="w-full sm:w-1/3 inline-block" />
         </div>
     </div>
