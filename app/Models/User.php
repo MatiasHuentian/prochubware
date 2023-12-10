@@ -38,6 +38,7 @@ class User extends Authenticatable
         'email',
         'password',
         'locale',
+        'dependency_id',
     ];
 
     /**
@@ -59,6 +60,7 @@ class User extends Authenticatable
         'email',
         'email_verified_at',
         'locale',
+        'dependency_id',
     ];
 
     protected $dates = [
@@ -75,6 +77,7 @@ class User extends Authenticatable
         'email_verified_at',
         'roles.title',
         'locale',
+        'dependency_id',
     ];
 
     /**
@@ -135,6 +138,11 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    public function dependency()
+    {
+        return $this->belongsTo(Dependency::class , 'dependency_id', 'id');
     }
 
     public function getCreatedAtAttribute($value)

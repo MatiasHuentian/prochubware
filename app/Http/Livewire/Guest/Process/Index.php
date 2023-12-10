@@ -16,6 +16,8 @@ class Index extends Component
 {
     use WithPagination, WithSorting, WithConfirmation;
 
+    public $user_id = null;
+
     public int $perPage;
 
     public array $orderable;
@@ -64,8 +66,9 @@ class Index extends Component
         $this->selected = [];
     }
 
-    public function mount()
+    public function mount($user_id = null)
     {
+        $this->user_id = $user_id;
         $this->sortBy            = 'id';
         $this->sortDirection     = 'desc';
         $this->perPage           = 100;
@@ -86,7 +89,9 @@ class Index extends Component
             'order_column'    => $this->sortBy,
             'order_direction' => $this->sortDirection,
         ])->OnlyActives(true)
-            ->DireccionDependency($this->selectedDirection, $this->selectedDependency);
+            ->DireccionDependency($this->selectedDirection, $this->selectedDependency)
+            ->Owner($this->user_id);
+
         $processes = $query->paginate($this->perPage);
 
         return view('livewire.guest.process.index', compact('processes', 'query'));

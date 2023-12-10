@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\User;
 
+use App\Models\Dependency;
+use App\Models\Direction;
 use App\Models\Role;
 use App\Models\User;
 use Livewire\Component;
@@ -16,6 +18,8 @@ class Edit extends Component
 
     public array $listsForFields = [];
 
+    public $selectedDirection;
+
     public function mount(User $user)
     {
         $this->user  = $user;
@@ -25,6 +29,8 @@ class Edit extends Component
 
     public function render()
     {
+        $this->selectedDirection = $this->user->dependency->direction_id ?? null;
+        $this->updatedSelectedDirection( $this->selectedDirection);
         return view('livewire.user.edit');
     }
 
@@ -65,11 +71,22 @@ class Edit extends Component
                 'string',
                 'nullable',
             ],
+            'user.dependency_id' => [
+                'integer',
+                'nullable',
+            ],
         ];
+    }
+
+    public function updatedSelectedDirection($direction)
+    {
+        $this->listsForFields['dependency'] = Dependency::where('direction_id' , '=' , $direction)->pluck('name' , 'id')->toArray();
     }
 
     protected function initListsForFields(): void
     {
+        $this->listsForFields['dependencies'] = null;
+        $this->listsForFields['direction'] = Direction::pluck('name' , 'id')->toArray();
         $this->listsForFields['roles'] = Role::pluck('title', 'id')->toArray();
     }
 }

@@ -20,6 +20,35 @@
             {{ trans('cruds.user.fields.email_helper') }}
         </div>
     </div>
+
+    <div>
+        <div class="form-group row">
+            <label for="selectedDirection" class="col-md-4 col-form-label text-md-right  required">{{ __('Dirección') }}</label>
+            <div class="col-md-6 ">
+                <x-select-list class="form-control" required id="selectedDirection" name="selectedDirection" :options="$listsForFields['direction']"
+                        wire:model="selectedDirection" />
+            </div>
+        </div>
+
+        @if (!is_null($selectedDirection))
+            <div class="form-group row">
+                <div class="form-group {{ $errors->has('user.dependency_id') ? 'invalid' : '' }}">
+                    <label class="form-label required" for="dependency">{{ trans('cruds.process.fields.dependency') }}</label>
+                </div>
+                <div class="col-md-6">
+                    <x-select-list-v2 class="form-control" required id="dependency" name="dependency" :options="$listsForFields['dependency']"
+                        wire:model="user.dependency_id" />
+                </div>
+                <div class="validation-message">
+                    {{ $errors->first('user.dependency_id') }}
+                </div>
+                <div class="help-block">
+                    {{ trans('cruds.process.fields.dependency_helper') }}
+                </div>
+            </div>
+        @endif
+    </div>
+
     <div class="form-group {{ $errors->has('user.password') ? 'invalid' : '' }}">
         <label class="form-label required" for="password">{{ trans('cruds.user.fields.password') }}</label>
         <input class="form-control" type="password" name="password" id="password" required wire:model.defer="password">
@@ -30,6 +59,7 @@
             {{ trans('cruds.user.fields.password_helper') }}
         </div>
     </div>
+
     <div class="form-group {{ $errors->has('roles') ? 'invalid' : '' }}">
         <label class="form-label required" for="roles">{{ trans('cruds.user.fields.roles') }}</label>
         <x-select-list class="form-control" required id="roles" name="roles" wire:model="roles" :options="$this->listsForFields['roles']" multiple />

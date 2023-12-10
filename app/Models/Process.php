@@ -156,23 +156,31 @@ class Process extends Model
     }
 
     // Scopes
-    public function scopeOnlyActives( $query ,  $bool )
+    public function scopeOnlyActives($query,  $bool)
     {
         if ($bool) {
-            return $query->where('state_id' , '=' , '2')
-            ->whereDate('end_date', '>', Carbon::now() );
+            return $query->where('state_id', '=', '2')
+                ->whereDate('end_date', '>', Carbon::now());
         }
     }
 
-    public function scopeDireccionDependency( $query , $direction , $dependency ){
-        if( $direction){
-            $query->whereHas('dependency' , function($query)use($direction){
-                return $query->where('direction_id' , '=' ,  $direction );
+    public function scopeDireccionDependency($query, $direction, $dependency)
+    {
+        if ($direction) {
+            $query->whereHas('dependency', function ($query) use ($direction) {
+                return $query->where('direction_id', '=',  $direction);
             });
         }
-        if( $dependency){
-            $query->where('dependency_id' ,'=' , $dependency);
+        if ($dependency) {
+            $query->where('dependency_id', '=', $dependency);
         }
         return $query;
+    }
+
+    public function scopeOwner($query, $value)
+    {
+        if ($value) {
+            return $query->where('owner_id', '=', $value);
+        }
     }
 }

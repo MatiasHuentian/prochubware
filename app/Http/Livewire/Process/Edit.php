@@ -21,12 +21,15 @@ use App\Models\RisksControlsFrecuency;
 use App\Models\ActivitiesRisksConsequence;
 use App\Models\ActivitiesRisksProbability;
 use App\Models\AttachmentsCategory;
+use App\Models\Direction;
 use Illuminate\Support\Arr;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Edit extends Component
 {
     public Process $process;
+
+    public $selectedDirection;
 
     public array $input = [];
     public array $inputs = [];
@@ -76,7 +79,6 @@ class Edit extends Component
 
     public function getMediaCollection($name)
     {
-        dd($this->mediaCollections);
         return $this->mediaCollections[$name];
     }
 
@@ -154,6 +156,9 @@ class Edit extends Component
 
     public function render()
     {
+        $this->selectedDirection = $this->process->dependency->direction_id ?? null;
+        $this->updatedSelectedDirection( $this->selectedDirection);
+
         return view('livewire.process.edit');
     }
 
@@ -344,7 +349,6 @@ class Edit extends Component
     protected function initListsForFields(): void
     {
         $this->listsForFields['owner']           = User::pluck('name', 'id')->toArray();
-        $this->listsForFields['dependency']      = Dependency::pluck('name', 'id')->toArray();
         $this->listsForFields['state']           = ProcessesState::pluck('name', 'id')->toArray();
         $this->listsForFields['glosary']         = Glossary::pluck('term', 'id')->toArray();
         $this->listsForFields['input']           = Input::pluck('name', 'id')->toArray();
@@ -359,8 +363,16 @@ class Edit extends Component
         $this->listsForFields['type']               = RisksControlsType::pluck('name', 'id')->toArray();
 
         $this->listsForFields['category']           = AttachmentsCategory::pluck('name', 'id')->toArray();
+
+        $this->listsForFields['direction']           = Direction::pluck('name', 'id')->toArray();
+        $this->listsForFields['dependency']           = "";
     }
 
+    public function updatedSelectedDirection($direction)
+    {
+        $this->listsForFields['dependency'] = Dependency::where('direction_id' , '=' , $direction)->pluck('name' , 'id')->toArray();
+        // $this->selectedDe = $direction;
+    }
 
     protected function contiene_palabra(string $cadena, string $palabra): bool
     {

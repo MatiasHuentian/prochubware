@@ -29,8 +29,9 @@ use App\Http\Controllers\Admin\RisksControlsTypeController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UpgradeProposalsStateController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Guest\ProcessController aS GuestProcessController;
+use App\Http\Controllers\Guest\ProcessController as GuestProcessController;
 use App\Http\Controllers\Auth\UserProfileController;
+use App\Http\Controllers\OwnProcessController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -54,13 +55,14 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [OwnProcessController::class, 'index'])->name('dashboard');
+    // Route::get('/dashboard', function () {
+    //     return view('dashboard');
+    // })->name('dashboard');
 });
 
 Route::group(['as' => 'guest.', 'middleware' => ['auth']], function () {
-    Route::get( 'processes' , [GuestProcessController::class , 'index' ] )->middleware('can:guest_process_index')->name('process.index');
+    Route::get('processes', [GuestProcessController::class, 'index'])->middleware('can:guest_process_index')->name('process.index');
 });
 
 // >>Versión del jetstream
