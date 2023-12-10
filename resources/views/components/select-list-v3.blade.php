@@ -16,7 +16,7 @@
                     let el = $('#{{ $attributes['id'] }}');
                     // console.log("v3 fall");
                     el.select2({
-                        placeholder: '{{ __('Select your option') }}',
+                        placeholder: '{{ __('Seleccione una opción') }}',
                         allowClear: !el.attr('required')
                     });
 
@@ -40,7 +40,7 @@
                     let el = $('#{{ $attributes['id'] }}');
                     // console.log("velse fall");
                     el.select2({
-                        placeholder: '{{ __('Select your option') }}',
+                        placeholder: '{{ __('Seleccione una opción') }}',
                         allowClear: !el.attr('required')
                     });
                     el.on('change', function(e) {

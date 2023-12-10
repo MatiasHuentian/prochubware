@@ -1,6 +1,6 @@
 <div>
     <div wire:ignore class="w-full">
-        <select class="select2 form-control" data-placeholder="{{ __('Select your option') }}" {{ $attributes }} >
+        <select class="select2 form-control" data-placeholder="{{ __('Seleccione una opción') }}" {{ $attributes }} >
             @if (!isset($attributes['multiple']))
                 <option></option>
             @endif
@@ -20,7 +20,7 @@
                 // initButtons()
                 // console.log("select with pivot");
                 el.select2({
-                    placeholder: '{{ __('Select your option') }}',
+                    placeholder: '{{ __('Seleccione una opción') }}',
                     allowClear: !el.attr('required'),
                     tags: true,
                     multiple:true

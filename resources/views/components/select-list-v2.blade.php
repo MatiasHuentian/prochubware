@@ -19,7 +19,7 @@
             function initSelect() {
                 // console.log("v2 fall");
                 el.select2({
-                    placeholder: '{{ __('Select your option') }}',
+                    placeholder: '{{ __('Seleccione una opción') }}',
                     allowClear: !el.attr('required')
                 })
             }

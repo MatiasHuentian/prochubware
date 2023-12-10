@@ -8,7 +8,7 @@
                     class="btn btn-info btn-sm deselect-all-button">{{ trans('global.deselect_all') }}</button>
             </div>
         @endif
-        <select class="select2 form-control" data-placeholder="{{ __('Select yours option') }}" {{ $attributes }}>
+        <select class="select2 form-control" data-placeholder="{{ __('Seleccione una opción') }}" {{ $attributes }}>
             @if (!isset($attributes['multiple']))
                 <option></option>
             @endif
@@ -41,7 +41,7 @@
                 // console.log("v0 fall");
                 initButtons()
                 el.select2({
-                    placeholder: '{{ __('Select your option') }}',
+                    placeholder: '{{ __('Seleccione una opción') }}',
                     allowClear: !el.attr('required')
                 })
             }
