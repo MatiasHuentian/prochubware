@@ -48,6 +48,7 @@ class ProcessController extends Controller
     {
         $process->load('owner', 'dependency', 'state', 'glosary', 'input', 'output', 'objectiveGroup');
 
+        // dd($process);
         $pdf = PDF::loadView('admin.process.pdf', compact('process'));
         return $pdf->stream();
 
