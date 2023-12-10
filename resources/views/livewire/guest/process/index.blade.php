@@ -95,10 +95,10 @@
                             {{ trans('cruds.process.fields.start_date') }}
                             @include('components.table.sort', ['field' => 'start_date'])
                         </th>
-                        <th>
+                        {{-- <th>
                             {{ trans('cruds.process.fields.end_date') }}
                             @include('components.table.sort', ['field' => 'end_date'])
-                        </th>
+                        </th> --}}
                         <th>
                         </th>
                     </tr>
@@ -148,9 +148,9 @@
                             <td>
                                 {{ $process->start_date }}
                             </td>
-                            <td>
+                            {{-- <td>
                                 {{ $process->end_date }}
-                            </td>
+                            </td> --}}
                             <td>
                                 <div class="flex justify-end">
                                     @can('process_show')
@@ -170,7 +170,7 @@
                                         </button>
                                     @endcan --}}
                                     @can('process_export_pdf')
-                                        <a class="btn btn-sm btn-success mr-2"
+                                        <a class="btn btn-sm btn-rose mr-2"
                                             href="{{ route('admin.processes.pdf.export', $process) }}">
                                             {{ __('PDF') }}
                                         </a>

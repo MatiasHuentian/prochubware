@@ -60,9 +60,7 @@ Route::middleware([
 });
 
 Route::group(['as' => 'guest.', 'middleware' => ['auth']], function () {
-
     Route::get( 'processes' , [GuestProcessController::class , 'index' ] )->middleware('can:guest_process_index')->name('process.index');
-
 });
 
 // >>Versión del jetstream

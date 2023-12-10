@@ -2305,6 +2305,12 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(126,48,225, 97);
 }
+
+.bg-awesome-green {
+	--tw-bg-opacity: 1;
+	background-color: rgba(32, 96, 61);
+}
+
 .bg-rose-500 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(244, 63, 94, var(--tw-bg-opacity));

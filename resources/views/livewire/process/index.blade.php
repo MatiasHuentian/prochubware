@@ -147,7 +147,7 @@
                                         </button>
                                     @endcan
                                     @can('process_export_pdf')
-                                        <a class="btn btn-sm btn-success mr-2" href="{{ route('admin.processes.pdf.export', $process) }}">
+                                        <a class="btn btn-sm btn-rose mr-2" href="{{ route('admin.processes.pdf.export', $process) }}">
                                             {{ __('PDF') }}
                                         </a>
                                     @endcan
