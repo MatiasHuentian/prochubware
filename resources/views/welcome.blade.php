@@ -8,7 +8,7 @@
         <link rel="apple-touch-icon" href="href="{{ asset('images/icons/cropped-Municipalidad-de-Recoleta-iconpaok-180x180.png') }}">
         <meta name="msapplication-TileImage" content="href="{{ asset('images/icons/cropped-Municipalidad-de-Recoleta-iconpaok-270x270.png') }}">
 
-        <title>Laravel</title>
+        <title>PROCHUBWARE</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
