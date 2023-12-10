@@ -49,7 +49,7 @@
                     </button>
 
                     <x-button class="ml-4">
-                        {{ __('Log in') }}
+                        {{ __('Iniciar sesión') }}
                     </x-button>
                 </div>
             </form>
