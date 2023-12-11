@@ -37,7 +37,9 @@ class Edit extends Component
     public function submit()
     {
         $this->validate();
-        $this->user->password = $this->password;
+        if( $this->password != "" ){
+            $this->user->password = $this->password;
+        }
         $this->user->save();
         $this->user->roles()->sync($this->roles);
 
@@ -57,6 +59,7 @@ class Edit extends Component
                 'unique:users,email,' . $this->user->id,
             ],
             'password' => [
+                'nullable',
                 'string',
             ],
             'roles' => [

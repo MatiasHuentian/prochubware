@@ -23,9 +23,9 @@
 
     <div>
         <div class="form-group row">
-            <label for="selectedDirection" class="col-md-4 col-form-label text-md-right  required">{{ __('Dirección') }}</label>
+            <label for="selectedDirection" class="col-md-4 col-form-label text-md-right">{{ __('Dirección') }}</label>
             <div class="col-md-6 ">
-                <x-select-list class="form-control" required id="selectedDirection" name="selectedDirection" :options="$listsForFields['direction']"
+                <x-select-list class="form-control"  id="selectedDirection" name="selectedDirection" :options="$listsForFields['direction']"
                         wire:model="selectedDirection" />
             </div>
         </div>
@@ -33,10 +33,10 @@
         @if (!is_null($selectedDirection))
             <div class="form-group row">
                 <div class="{{ $errors->has('user.dependency_id') ? 'invalid' : '' }}">
-                    <label class="form-label required" for="dependency">{{ trans('cruds.process.fields.dependency') }}</label>
+                    <label class="form-label " for="dependency">{{ trans('cruds.process.fields.dependency') }}</label>
                 </div>
                 <div class="col-md-6">
-                    <x-select-list-v2 class="form-control" required id="dependency" name="dependency" :options="$listsForFields['dependency']"
+                    <x-select-list-v2 class="form-control"  id="dependency" name="dependency" :options="$listsForFields['dependency']"
                         wire:model="user.dependency_id" />
                 </div>
                 <div class="validation-message">
@@ -56,6 +56,7 @@
             {{ $errors->first('user.password') }}
         </div>
         <div class="help-block">
+            (Dejar vacía para mantener contraseña)
             {{ trans('cruds.user.fields.password_helper') }}
         </div>
     </div>

@@ -61,8 +61,8 @@
 
         <!-- Email -->
         <div class="col-span-6 sm:col-span-4">
-            <x-label for="email" value="{{ __('Email') }}" />
-            <x-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" required autocomplete="username" />
+            <x-label for="email">{{ __('Email') }} <span class="text-red-600">(Solo editable por administrador)</span> </x-label>
+            <x-input id="email" type="email" class="mt-1 block w-full" disabled wire:model.defer="state.email" />
             <x-input-error for="email" class="mt-2" />
 
             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && ! $this->user->hasVerifiedEmail())
