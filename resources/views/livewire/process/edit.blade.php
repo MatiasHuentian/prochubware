@@ -173,13 +173,21 @@
         </div>
 
         @if (!is_null($selectedDirection))
-            <div class="form-group row">
+            <div class="form-group row {{ is_null($selectedDirection) ? 'hidden':'block' }}">
                 <div class="form-group {{ $errors->has('process.dependency_id') ? 'invalid' : '' }}">
                     <label class="form-label required" for="dependency">{{ trans('cruds.process.fields.dependency') }}</label>
                 </div>
                 <div class="col-md-6">
-                    <x-select-list-v2 class="form-control" required id="dependency" name="dependency" :options="$listsForFields['dependency']"
-                        wire:model="process.dependency_id" />
+                    <div>
+                        <div class="w-full">
+                            <select wire:model="process.dependency_id" class="form-control" required id="dependency" name="dependency" data-placeholder="{{ __('Descripciones utilizadas') }}">
+                                <option></option>
+                                @foreach ($listsForFields['dependency'] as $key => $value)
+                                    <option value="{{ $key }}">{{ $value }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="validation-message">
                     {{ $errors->first('process.dependency_id') }}
@@ -189,6 +197,7 @@
                 </div>
             </div>
         @endif
+
     </div>
     {{-- <div class="form-group {{ $errors->has('process.dependency_id') ? 'invalid' : '' }}">
         <label class="form-label required" for="dependency">{{ trans('cruds.process.fields.dependency') }}</label>

@@ -151,14 +151,14 @@ class Edit extends Component
             $this->mediaCollections['attachment_src'][$index] = $attachment["src"];
         }
 
+        $this->selectedDirection = $this->process->dependency->direction_id ?? $this->selectedDirection;
         $this->initListsForFields();
+
+        $this->updatedSelectedDirection( $this->selectedDirection );
     }
 
     public function render()
     {
-        $this->selectedDirection = $this->process->dependency->direction_id ?? null;
-        $this->updatedSelectedDirection( $this->selectedDirection);
-
         return view('livewire.process.edit');
     }
 
@@ -365,13 +365,17 @@ class Edit extends Component
         $this->listsForFields['category']           = AttachmentsCategory::pluck('name', 'id')->toArray();
 
         $this->listsForFields['direction']           = Direction::pluck('name', 'id')->toArray();
-        $this->listsForFields['dependency']           = "";
+        $this->listsForFields['dependency']             = null;
     }
 
     public function updatedSelectedDirection($direction)
     {
+        $actual_dependency = $this->process->dependency_id;
+        $this->process->dependency_id = null;
         $this->listsForFields['dependency'] = Dependency::where('direction_id' , '=' , $direction)->pluck('name' , 'id')->toArray();
-        // $this->selectedDe = $direction;
+        if( ($this->listsForFields['dependency'][ $actual_dependency ] ?? false)   ){
+            $this->process->dependency_id = $actual_dependency;
+        }
     }
 
     protected function contiene_palabra(string $cadena, string $palabra): bool

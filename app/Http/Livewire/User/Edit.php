@@ -24,13 +24,15 @@ class Edit extends Component
     {
         $this->user  = $user;
         $this->roles = $this->user->roles()->pluck('id')->toArray();
+        $this->selectedDirection = $this->user->dependency->direction_id ?? $this->selectedDirection;
         $this->initListsForFields();
+
+        $this->updatedSelectedDirection( $this->selectedDirection );
+
     }
 
     public function render()
     {
-        $this->selectedDirection = $this->user->dependency->direction_id ?? null;
-        $this->updatedSelectedDirection( $this->selectedDirection);
         return view('livewire.user.edit');
     }
 
@@ -84,11 +86,14 @@ class Edit extends Component
     public function updatedSelectedDirection($direction)
     {
         $this->listsForFields['dependency'] = Dependency::where('direction_id' , '=' , $direction)->pluck('name' , 'id')->toArray();
+        if( !($this->listsForFields['dependency'][ $this->user->dependency_id ] ?? false)   ){
+            $this->user->dependency_id = null;
+        }
     }
 
     protected function initListsForFields(): void
     {
-        $this->listsForFields['dependencies'] = null;
+        $this->listsForFields['dependency'] = null;
         $this->listsForFields['direction'] = Direction::pluck('name' , 'id')->toArray();
         $this->listsForFields['roles'] = Role::pluck('title', 'id')->toArray();
     }

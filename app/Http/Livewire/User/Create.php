@@ -79,7 +79,7 @@ class Create extends Component
     public function updatedSelectedDirection($direction)
     {
         $this->listsForFields['dependency'] = Dependency::where('direction_id' , '=' , $direction)->pluck('name' , 'id')->toArray();
-        // $this->selectedDe = $direction;
+        $this->selectedDirection = $direction;
     }
 
     protected function initListsForFields(): void
