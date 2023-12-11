@@ -177,7 +177,7 @@ class Process extends Model
         return $query;
     }
 
-    public function scopeOwner($query, $value)
+    public function scopeOnlyOwner($query, $value)
     {
         if ($value) {
             return $query->where('owner_id', '=', $value);

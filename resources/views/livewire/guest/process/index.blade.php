@@ -31,24 +31,27 @@
     <br>
     <div class="card-controls sm:flex">
 
-        <div class="w-full sm:w-1/3 mr-4">
-            <select wire:model="selectedDirection" name="selectedDirection" id="selectedDirection" class="form-control">
-                <option value="">Seleccione dirección</option>
-                @foreach ($listsForFields['direction'] as $i => $value)
-                    <option value="{{ $i }}">{{ $value }}</option>
-                @endforeach
-            </select>
-        </div>
-        @if (!is_null($selectedDirection))
-            <div class="w-full sm:w-1/3">
-                <select wire:model="selectedDependency" name="selectedDependency" id="selectedDependency"
+        @if (!($user_id ?? false))
+            <div class="w-full sm:w-1/3 mr-4">
+                <select wire:model="selectedDirection" name="selectedDirection" id="selectedDirection"
                     class="form-control">
-                    <option value="">Seleccione dependencia</option>
-                    @foreach ($listsForFields['dependency'] as $i => $value)
+                    <option value="">Seleccione dirección</option>
+                    @foreach ($listsForFields['direction'] as $i => $value)
                         <option value="{{ $i }}">{{ $value }}</option>
                     @endforeach
                 </select>
             </div>
+            @if (!is_null($selectedDirection))
+                <div class="w-full sm:w-1/3">
+                    <select wire:model="selectedDependency" name="selectedDependency" id="selectedDependency"
+                        class="form-control">
+                        <option value="">Seleccione dependencia</option>
+                        @foreach ($listsForFields['dependency'] as $i => $value)
+                            <option value="{{ $i }}">{{ $value }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            @endif
         @endif
     </div>
     <br>

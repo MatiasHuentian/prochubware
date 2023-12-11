@@ -12,7 +12,7 @@ class OwnProcessController extends Controller
     public function index()
     {
         abort_if(Gate::denies('guest_process_index'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        return view('guest.process.index' );
+        $datosDeUsuario = Auth::user();
+        return view('guest.process.index'  , compact( 'datosDeUsuario' ));
     }
 }

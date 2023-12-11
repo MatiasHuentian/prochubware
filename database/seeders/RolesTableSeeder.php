@@ -12,18 +12,22 @@ class RolesTableSeeder extends Seeder
         $roles = [
             [
                 'id'    => 1,
-                'title' => 'Admin',
+                'title' => 'Super Administrador',
             ],
             [
                 'id'    => 2,
-                'title' => 'User',
+                'title' => 'Usuario - administrador',
+            ],
+            [
+                'id'    => 3,
+                'title' => 'Usuario - invitado',
             ],
         ];
 
-        foreach ($roles as $permission) {
+        foreach ($roles as $role) {
             Role::updateOrCreate(
-                ['id' => $permission['id']],
-                ['title' => $permission['title']]
+                ['id' => $role['id']],
+                ['title' => $role['title']]
             );
         }
 

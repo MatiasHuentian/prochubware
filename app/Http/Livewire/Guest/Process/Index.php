@@ -90,7 +90,7 @@ class Index extends Component
             'order_direction' => $this->sortDirection,
         ])->OnlyActives(true)
             ->DireccionDependency($this->selectedDirection, $this->selectedDependency)
-            ->Owner($this->user_id);
+            ->OnlyOwner($this->user_id ?? null);
 
         $processes = $query->paginate($this->perPage);
 

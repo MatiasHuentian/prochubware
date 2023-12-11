@@ -118,9 +118,11 @@
                                 {{ __('Profile') }}
                             </x-dropdown-link>
 
+                            @can('admin_panel_access')
                             <x-dropdown-link href="{{ route('admin.home') }}">
                                 {{ __('Panel de administración') }}
                             </x-dropdown-link>
+                            @endcan
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-dropdown-link href="{{ route('api-tokens.index') }}">
