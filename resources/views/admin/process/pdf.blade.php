@@ -105,181 +105,331 @@
 
     <div class=WordSection1>
 
-        <p class=MsoNormal align=center style='text-align:center'><b><u><span lang=ES-CL
-                        style='font-size:10.0pt;font-family:"Arial",sans-serif'>
-                        {{ $process->name }}</span></u></b></p>
+        <p class=MsoNormal align=center style='text-align:center'>
+            <b>
+                <u>
+                    <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>
+                        {{ $process->name }}
+                    </span>
+                </u>
+            </b>
+        </p>
 
-        <p class=MsoNormal><span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>&nbsp;</span></p>
+        <p class=MsoNormal>
+            <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>
+                &nbsp;
+            </span>
+        </p>
 
-        <p class=MsoNormal style='margin-left:35.4pt;text-indent:-35.4pt'><span lang=ES-CL
-                style='font-size:10.0pt;font-family:"Arial",sans-serif'>&nbsp;</span></p>
+        <p class=MsoNormal style='margin-left:35.4pt;text-indent:-35.4pt'>
+            <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>
+                &nbsp;
+            </span>
+        </p>
 
-        <p class=MsoNormal><span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>&nbsp;</span></p>
+        <p class=MsoNormal>
+            <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>
+                &nbsp;
+            </span>
+        </p>
 
-        <p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-36.0pt'><b><span lang=ES-CL
-                    style='font-size:10.0pt;font-family:"Arial",sans-serif'><span
-                        style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>I.<span
+        <p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-36.0pt'>
+            <b>
+                <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>
+                    <span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>I.<span
                         style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </span></span></b><b><span lang=ES-CL
-                    style='font-size:10.0pt;font-family:"Arial",sans-serif'>INTRODUCCIÓN</span></b></p>
+                    </span>
+                </span>
+            </b>
+            <b>
+                <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>INTRODUCCIÓN</span>
+            </b>
+        </p>
 
-        <p class=MsoNormal><b><span lang=ES-CL
-                    style='font-size:10.0pt;font-family:
-"Arial",sans-serif'>&nbsp;</span></b></p>
+        <p class=MsoNormal>
+            <b>
+                <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>&nbsp;</span>
+            </b>
+        </p>
 
-        <p class=MsoNormal><span lang=ES-CL> {{ $process->introduction }} </span></p>
+        <p class=MsoNormal>
+            <span lang=ES-CL> {{ $process->introduction }} </span>
+        </p>
 
-        <p class=MsoNormal style='margin-top:6.0pt'><span style='font-size:11.0pt'>&nbsp;</span></p>
+        <p class=MsoNormal style='margin-top:6.0pt'>
+            <span style='font-size:11.0pt'>&nbsp;</span>
+        </p>
 
-        <p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-36.0pt'><b><span lang=ES-CL
-                    style='font-size:10.0pt;font-family:"Arial",sans-serif'><span
-                        style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>II.<span
-                        style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </span></span></b><b><span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>MEMO
-                    CONTEXTUAL</span></b></p>
+        <p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-36.0pt'>
+            <b>
+                <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>
+                    <span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+                    II.
+                    <span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>
+                </span>
+            </b>
+            <b>
+                <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>
+                    MEMO CONTEXTUAL
+                </span>
+            </b>
+        </p>
 
-        <p class=MsoListParagraph><span lang=ES-CL>{{ $process->contextual_memo }} </span></p>
+        <p class=MsoListParagraph>
+            <span lang=ES-CL>{{ $process->contextual_memo }} </span>
+        </p>
 
-        <p class=MsoListParagraph style='margin-left:36.0pt'><b><span lang=ES-CL
-                    style='font-size:10.0pt;font-family:"Arial",sans-serif'>&nbsp;</span></b></p>
+        <p class=MsoListParagraph style='margin-left:36.0pt'>
+            <b>
+                <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>&nbsp;</span>
+            </b>
+        </p>
 
-        <p class=MsoListParagraph style='margin-left:36.0pt'><b><span lang=ES-CL
-                    style='font-size:10.0pt;font-family:"Arial",sans-serif'>&nbsp;</span></b></p>
+        <p class=MsoListParagraph style='margin-left:36.0pt'>
+            <b>
+                <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>&nbsp;</span>
+            </b>
+        </p>
 
-        <p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-36.0pt'><b><span lang=ES-CL
-                    style='font-size:10.0pt;font-family:"Arial",sans-serif'><span
-                        style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span>III.<span
-                        style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </span></span></b><b><span lang=ES-CL
-                    style='font-size:10.0pt;font-family:"Arial",sans-serif'>GLOSARIO</span></b></p>
+        <p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-36.0pt'>
+            <b>
+                <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>
+                    <span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+                    </span>III.
+                    <span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>
+                </span>
+            </b>
+            <b>
+                <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>GLOSARIO</span>
+            </b>
+        </p>
 
-        <p class=MsoNormal style='margin-left:54.0pt'><span
-                style='font-size:10.0pt;
-font-family:"Arial",sans-serif'>&nbsp;</span></p>
+        <p class=MsoNormal style='margin-left:54.0pt'>
+            <span style='font-size:10.0pt; font-family:"Arial",sans-serif'>&nbsp;</span>
+        </p>
         @foreach ($process->glosary as $i => $glosary)
-            <p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-18.0pt'><span
-                    lang=ES-CL>{{ $i + 1 }}.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-                    </span></span><span lang=ES-CL> <b> {{ $glosary->term }}: </b>
-                    {{ $glosary->pivot->description }}.</span></p>
-            <p class=MsoNormal><span lang=ES-CL>&nbsp;</span></p>
+            <p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-18.0pt'>
+                <span lang=ES-CL>{{ $i + 1 }}.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>
+                </span>
+                <span lang=ES-CL> <b> {{ $glosary->term }}: </b>
+                    {{ $glosary->pivot->description }}.</span>
+            </p>
+            <p class=MsoNormal>
+                <span lang=ES-CL>&nbsp;</span>
+            </p>
         @endforeach
 
-        <p class=MsoNormal><span lang=ES-CL style='font-size:9.0pt;font-family:"Arial",sans-serif'>&nbsp;</span></p>
+        <p class=MsoNormal>
+            <span lang=ES-CL style='font-size:9.0pt;font-family:"Arial",sans-serif'>&nbsp;</span>
+        </p>
 
-        <p class=MsoNormal style='margin-left:35.25pt'><i><span lang=ES-CL style='font-size:9.0pt'>&nbsp;</span></i></p>
+        <p class=MsoNormal style='margin-left:35.25pt'>
+            <i>
+                <span lang=ES-CL style='font-size:9.0pt'>&nbsp;</span>
+            </i>
+        </p>
 
-        <p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-36.0pt'><b><span lang=ES-CL
-                    style='font-size:10.0pt;font-family:"Arial",sans-serif'><span
-                        style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span>IV.<span
+        <p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-36.0pt'>
+            <b>
+                <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>
+                    <span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span>IV.<span
                         style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </span></span></b><b><span lang=ES-CL
-                    style='font-size:10.0pt;font-family:"Arial",sans-serif'>OBJETIVOS</span></b></p>
+                    </span>
+                </span>
+            </b>
+            <b>
+                <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>OBJETIVOS</span>
+            </b>
+        </p>
 
-        <p class=MsoNormal style='margin-top:6.0pt'><b><span
-                    style='font-size:10.0pt;3
-font-family:"Arial",sans-serif'>&nbsp;</span></b></p>
-        <p class=MsoNormal><span lang=ES-CL>{{ $process->objective }}</span></p>
+        <p class=MsoNormal style='margin-top:6.0pt'>
+            <b>
+                <span style='font-size:10.0pt;3 font-family:"Arial",sans-serif'>&nbsp;</span>
+            </b>
+        </p>
+        <p class=MsoNormal>
+            <span lang=ES-CL>{{ $process->objective }}</span>
+        </p>
 
-        <p class=MsoNormal><span lang=ES-CL style='font-size:9.0pt'>&nbsp;</span></p>
+        <p class=MsoNormal>
+            <span lang=ES-CL style='font-size:9.0pt'>&nbsp;</span>
+        </p>
 
-        <p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-36.0pt'><a name="_Toc90379585"><b><span
-                        lang=ES-CL style='font-size:10.0pt;font-family:
-"Arial",sans-serif'><span
-                            style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-                        </span>V.<span
+        <p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-36.0pt'>
+            <a name="_Toc90379585">
+                <b>
+                    <span lang=ES-CL style='font-size:10.0pt;font-family: "Arial",sans-serif'>
+                        <span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span>
+                        V.<span
                             style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </span></span></b><b><span lang=ES-CL
-                        style='font-size:10.0pt;font-family:"Arial",sans-serif'>ENTRADAS
-                        DEL PROCESO</span></b></a></p>
+                        </span>
+                    </span>
+                </b>
+                <b>
+                    <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>
+                        ENTRADAS DEL PROCESO
+                    </span>
+                </b>
+            </a>
+        </p>
 
-        <h2 style='margin-left:0cm;text-indent:0cm'><span
-                style='font-size:10.0pt;
-font-family:"Arial",sans-serif'>&nbsp;</span></h2>
-
-        @foreach ($process->input as $i => $input)
-            <h2 style='margin-left:53.4pt'><a name="_Toc90379590">{{ $i + 1 }}.<span
-                        style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-                    </span> <b> {{ $input->name }}: </b> {{ $input->description }}</a></h2>
+        <h2 style='margin-left:0cm;text-indent:0cm'>
+            <span style='font-size:10.0pt; font-family:"Arial",sans-serif'>
+                &nbsp;
+            </span>
+        </h2>
+        @foreach ($process->input as $i => $element)
+            <p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-18.0pt'>
+                <span lang=ES-CL>{{ $i + 1 }}.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>
+                </span>
+                <span lang=ES-CL> <b> {{ $element->name }}: </b>
+                    {{ $element->pivot->description }}.</span>
+            </p>
+            <p class=MsoNormal>
+                <span lang=ES-CL>&nbsp;</span>
+            </p>
         @endforeach
 
-        <p class=MsoNormal style='border:none'><span lang=ES-CL
-                style='font-size:10.0pt;
-font-family:"Arial",sans-serif'>&nbsp;</span></p>
+        <p class=MsoNormal style='border:none'>
+            <span lang=ES-CL style='font-size:10.0pt; font-family:"Arial",sans-serif'>
+                &nbsp;
+            </span>
+        </p>
 
-        <p class=MsoNormal style='border:none'><span lang=ES-CL
-                style='font-size:10.0pt;
-font-family:"Arial",sans-serif'>&nbsp;</span></p>
+        <p class=MsoNormal style='border:none'>
+            <span lang=ES-CL style='font-size:10.0pt; font-family:"Arial",sans-serif'>
+                &nbsp;
+            </span>
+        </p>
+        <p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-36.0pt'>
+            <a name="_Toc90379585">
+                <b>
+                    <span lang=ES-CL style='font-size:10.0pt;font-family: "Arial",sans-serif'>
+                        <span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        VI.
+                        <span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </b>
+                <b>
+                    <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>
+                        SALIDAS DEL PROCESO
+                    </span>
+                </b>
+            </a>
+        </p>
+        @foreach ($process->output as $i => $element)
+            <p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-18.0pt'>
+                <span lang=ES-CL>{{ $i + 1 }}.<span
+                        style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>
+                </span>
+                <span lang=ES-CL> <b> {{ $element->name }}: </b>
+                    {{ $element->pivot->description }}.</span>
+            </p>
+            <p class=MsoNormal>
+                <span lang=ES-CL>&nbsp;</span>
+            </p>
+        @endforeach
 
-        <p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-36.0pt'><b><span lang=ES-CL
-                    style='font-size:10.0pt;font-family:"Arial",sans-serif'><span
-                        style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span>VI.<span
-                        style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </span></span></b><b><span lang=ES-CL
-                    style='font-size:10.0pt;font-family:"Arial",sans-serif'>SALIDAS DEL
-                    PROCESO</span></p>
+        <b>
+            <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>
+                <br clear=all style='page-break-before:always'>
+            </span>
+        </b>
 
-        <p class=MsoListParagraph style='margin-left:54.0pt;border:none'><b><span lang=ES-CL
-                    style='font-size:10.0pt;font-family:"Arial",sans-serif'>&nbsp;</span></b></p>
+        <p class=MsoNormal>
+            <b>
+                <span lang=ES-CL style='font-size:10.0pt;font-family: "Arial",sans-serif'>
+                    &nbsp;
+                </span>
+            </b>
+        </p>
 
-        <h2 style='margin-left:53.4pt'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-            </span>Output1: <span style='font-weight:normal'>Descripci�n del proceso 1</span>
-        </h2>
+        <p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-36.0pt'>
+            <b>
+                <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>
+                    <span style='font:7.0pt "Times New Roman"'>
+                        &nbsp;
+                    </span>
+                    VII.
+                    <span style='font:7.0pt "Times New Roman"'>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>
+                </span>
+            </b>
+            <b>
+                <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>
+                    ACTIVIDADES DEL PROCESO
+                    <a name="_Toc90379583">
+                    </a>
+                </span>
+            </b>
+        </p>
 
-        <h2 style='margin-left:53.4pt'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-            </span>Output2: <span style='font-weight:normal'>Descripci�n del output 2</span></h2>
+        @foreach ($process->activities as $i => $activity)
+            <h2 style='margin-left:53.25pt'>
+                <a name="_Toc90379638">{{ $i + 1 }}.<span
+                        style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span>{{ $activity->name }}</a>
+            </h2>
 
-        <p class=MsoBodyTextIndent style='margin-left:0cm'><span lang=ES-CL
-                style='font-size:10.0pt;font-family:"Arial",sans-serif'>&nbsp;</span></p>
+            <p class=MsoNormal>
+                <span lang=ES-CL>{{ $activity->description }}</span>
+            </p>
+        @endforeach
+        @php
+            // Alisando las actividades para que se registren solo los riesgos
+            $riesgos = collect($process->activities)->flatMap(function ($actividad) {
+                return collect($actividad['risks']);
+            });
+        @endphp
 
-        <p class=MsoBodyTextIndent style='margin-left:0cm'><span lang=ES-CL
-                style='font-size:10.0pt;font-family:"Arial",sans-serif'>&nbsp;</span></p>
+        <p class=MsoNormal>
+            <span lang=ES-CL>
+                &nbsp;
+            </span>
+        </p>
+        <p class=MsoNormal>
+            <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>
+                &nbsp;
+            </span>
+        </p>
 
-        <b><span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'><br clear=all
-                    style='page-break-before:always'>
-            </span></b>
-
-        <p class=MsoNormal><b><span lang=ES-CL
-                    style='font-size:10.0pt;font-family:
-"Arial",sans-serif'>&nbsp;</span></b></p>
-
-        <p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-36.0pt'><b><span lang=ES-CL
-                    style='font-size:10.0pt;font-family:"Arial",sans-serif'><span
-                        style='font:7.0pt "Times New Roman"'>&nbsp; </span>VII.<span
-                        style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </span></span></b><b><span lang=ES-CL
-                    style='font-size:10.0pt;font-family:"Arial",sans-serif'>ACTIVIDADES
-                    DEL PROCESO<a name="_Toc90379583"> (Anexo N�1)</a></span></b></p>
-
-        <p class=MsoBodyTextIndent style='margin-left:18.0pt'><b><span lang=ES-CL
-                    style='font-size:10.0pt;font-family:"Arial",sans-serif'>Actividades</span></b></p>
-
-        <h2 style='margin-left:53.25pt'><a name="_Toc90379638">1.<span
-                    style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Elaborar
-                Presupuesto</a></h2>
-
-        <p class=MsoNormal><span lang=ES-CL>En funci�n de los requerimientos y la
-                proyecci�n presupuestaria <b>SECPLA</b> deber� elaborar el presupuesto para el
-                a�o siguiente</span></p>
-
-        <h2 style='margin-left:53.25pt'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-            </span>�Presentar presupuesto al concejo</h2>
-
-        <p class=MsoNormal><span lang=ES-CL>La primera semana de octubre (en
-                condiciones ideales debiese presentarse antes para tener tiempo suficiente en
-                caso que se rechace) la <b>Alcald�a</b> debe presentar al concejo el
-                presupuesto para el a�o siguiente</span></p>
-
-        <p class=MsoNormal><span lang=ES-CL>&nbsp;</span></p>
-
-        <p class=MsoNormal><span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>&nbsp;</span></p>
-
-        <p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-36.0pt'><b><span lang=ES-CL
-                    style='font-size:10.0pt;font-family:"Arial",sans-serif'>VIII.<span
-                        style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </span></span></b><b><span lang=ES-CL
-                    style='font-size:10.0pt;font-family:"Arial",sans-serif'>Riesgos
-                    y Controles</span></b></p>
-
+        <p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-36.0pt'>
+            <b>
+                <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>
+                    VIII.
+                    <span style='font:7.0pt "Times New Roman"'>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>
+                </span>
+            </b>
+            <b>
+                <span lang=ES-CL style='font-size:10.0pt;font-family:"Arial",sans-serif'>
+                    Riesgos y Controles
+                </span>
+            </b>
+        </p>
+        @foreach ($riesgos as $i => $risk)
+            <h2 style='margin-left:53.25pt'>
+                <a name="_Toc90379638">
+                    {{ $i + 1 }}.
+                    <span style='font:7.0pt "Times New Roman"'>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>{{ $risk->name }}
+                </a>
+            </h2>
+            <p class=MsoNormal>
+                <span lang=ES-CL>{{ $risk->description }}</span>
+            </p>
+        @endforeach
     </div>
 
 </body>

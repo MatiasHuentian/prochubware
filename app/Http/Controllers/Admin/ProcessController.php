@@ -46,9 +46,8 @@ class ProcessController extends Controller
 
     public function pdfexport(Process $process)
     {
-        $process->load('owner', 'dependency', 'state', 'glosary', 'input', 'output', 'objectiveGroup');
+        $process->load('owner', 'dependency', 'state', 'glosary', 'input', 'output', 'objectiveGroup' , 'activities.risks');
 
-        // dd($process);
         $pdf = PDF::loadView('admin.process.pdf', compact('process'));
         return $pdf->stream();
 
