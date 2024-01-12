@@ -153,6 +153,12 @@
                                             {{ trans('global.delete') }}
                                         </button>
                                     @endcan
+                                    @can('process_export_word')
+                                        <a class="btn btn-sm btn-info mr-2" target="_blank"
+                                            href="{{ route('admin.processes.word.export', $process) }}">
+                                            {{ __('WORD') }}
+                                        </a>
+                                    @endcan
                                     @can('process_export_pdf')
                                         <a class="btn btn-sm btn-rose mr-2" target="_blank"
                                             href="{{ route('admin.processes.pdf.export', $process) }}">

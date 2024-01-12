@@ -545,7 +545,11 @@ class PermissionsTableSeeder extends Seeder
             [
                 'id' => 134,
                 'title' => 'guest_process_index'
-            ]
+            ],
+            [
+                'id' => 135,
+                'title' => 'process_export_word'
+            ],
         ];
         foreach ($permissions as $permission) {
             Permission::updateOrCreate(

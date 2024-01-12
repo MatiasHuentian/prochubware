@@ -119,6 +119,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::resource('glossaries', GlossaryController::class, ['except' => ['store', 'update', 'destroy', 'show']]);
 
     // Process
+    Route::get('processes/word/{process}', [ProcessController::class, 'wordExport'])->name('processes.word.export');
     Route::get('processes/pdf/{process}', [ProcessController::class, 'pdfexport'])->name('processes.pdf.export');
     Route::post('processes/csv', [ProcessController::class, 'csvStore'])->name('processes.csv.store');
     Route::put('processes/csv', [ProcessController::class, 'csvUpdate'])->name('processes.csv.update');
