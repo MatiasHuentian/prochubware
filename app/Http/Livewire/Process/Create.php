@@ -152,7 +152,7 @@ class Create extends Component
         foreach ($this->activities as $activity) {
             $activities = $this->process->activities()->create($activity);
 
-            foreach ($activity['risks'] as $risk) {
+            foreach (($activity['risks'] ?? []) as $risk) {
                 $activitiesRisk = $activities->risks()->create($risk);
 
                 foreach (($risk['causes'] ?? []) as $causeData) {

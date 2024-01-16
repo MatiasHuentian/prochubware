@@ -211,7 +211,7 @@ class Edit extends Component
             $activities = $this->process->activities()->create($activity);
 
             $activities->risks()->delete();
-            foreach ($activity['risks'] as $risk) {
+            foreach (($activity['risks'] ?? []) as $risk) {
                 $activitiesRisk = $activities->risks()->create($risk);
 
                 foreach (($risk['causes'] ?? []) as $causeData) {
