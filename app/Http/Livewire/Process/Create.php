@@ -23,6 +23,7 @@ use App\Models\ActivitiesRisksProbability;
 use App\Models\AttachmentsCategory;
 use App\Models\Direction;
 use App\Models\RisksControl;
+use App\Models\UpgradeProposalsState;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\Rule;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -55,6 +56,8 @@ class Create extends Component
     public array $activities = [];
 
     public array $kpis = [];
+
+    public array $upgrades_proposals = [];
 
     public array $attachments = [];
 
@@ -147,6 +150,10 @@ class Create extends Component
 
         foreach ($this->kpis as $i => $kpi) {
             $this->process->kpis()->create($kpi);
+        }
+
+        foreach ($this->upgrades_proposals as $i => $upgrade_proposal) {
+            $this->process->upgrades_proposals()->create($upgrade_proposal);
         }
 
         foreach ($this->activities as $activity) {
@@ -266,10 +273,6 @@ class Create extends Component
                 'string',
                 'required'
             ],
-            'kpis.*.name' => [
-                'string',
-                'required'
-            ],
             'kpis.*.description' => [
                 'string',
                 'nullable'
@@ -281,6 +284,22 @@ class Create extends Component
             'kpis.*.ubication_data' => [
                 'string',
                 'nullable'
+            ],
+            'upgrades_proposals' => [
+                'array'
+            ],
+            'upgrades_proposals.*.description' => [
+                'string',
+                'nullable'
+            ],
+            'upgrades_proposals.*.status_id' => [
+                'integer',
+                'exists:upgrade_proposals_states,id',
+                'nullable',
+            ],
+            'upgrades_proposals.*.deadline' => [
+                'nullable',
+                'date_format:' . config('project.date_format'),
             ],
             'attachments.*.mediaCollections.attachment_src' => [
                 'array',
@@ -342,6 +361,7 @@ class Create extends Component
         $this->listsForFields['frecuency']          = RisksControlsFrecuency::pluck('name', 'id')->toArray();
         $this->listsForFields['method']             = RisksControlsMethod::pluck('name', 'id')->toArray();
         $this->listsForFields['type']               = RisksControlsType::pluck('name', 'id')->toArray();
+        $this->listsForFields['upgrades_proposals_states'] = UpgradeProposalsState::pluck('name', 'id')->toArray();
 
         $this->listsForFields['category']           = AttachmentsCategory::pluck('name', 'id')->toArray();
 
@@ -581,6 +601,9 @@ class Create extends Component
         if($model == 'attachments'){
             $last_id = array_key_last($this->attachments);
             $this->dispatchBrowserEvent('reApplyDropzone_'.$last_id);
+        }else if($model == 'upgrades_proposals'){
+            $last_id = array_key_last($this->upgrades_proposals);
+            $this->dispatchBrowserEvent('reApplyTimePicker_'.$last_id);
         }
     }
 

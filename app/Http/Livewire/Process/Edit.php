@@ -22,7 +22,9 @@ use App\Models\ActivitiesRisksConsequence;
 use App\Models\ActivitiesRisksProbability;
 use App\Models\AttachmentsCategory;
 use App\Models\Direction;
+use App\Models\UpgradeProposalsState;
 use Illuminate\Support\Arr;
+use Illuminate\Validation\Rule;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Edit extends Component
@@ -48,6 +50,8 @@ class Edit extends Component
     public array $activities = [];
 
     public array $kpis = [];
+
+    public array $upgrades_proposals = [];
 
     public array $attachments = [];
 
@@ -132,7 +136,7 @@ class Edit extends Component
         $this->outputs = $this->pivot_many_format($relations_many['output'], new Output());
         $this->objectives_groups = $this->pivot_many_format($relations_many['objectiveGroup'], new ObejctivesGroup());
 
-        $this->process = $this->process->load(['kpis', 'attachments.media', 'activities' => function ($query) {
+        $this->process = $this->process->load(['kpis', 'upgrades_proposals.status' , 'attachments.media', 'activities' => function ($query) {
             return $query->with(['risks' => function ($query) {
                 return $query->with(
                     'causes',
@@ -145,6 +149,8 @@ class Edit extends Component
         $this->activities = $this->process->activities->toArray();
 
         $this->kpis = $this->process->kpis->toArray();
+
+        $this->upgrades_proposals = $this->process->upgrades_proposals->toArray();
 
         $this->attachments = $this->process->attachments->toArray();
         foreach ($this->attachments as $index => $attachment) {
@@ -247,6 +253,11 @@ class Edit extends Component
             $kpis = $this->process->kpis()->create($activity);
         }
 
+        $this->process->upgrades_proposals()->delete();
+        foreach ($this->upgrades_proposals as $proposal_upgrade) {
+            $upgrades_proposals = $this->process->upgrades_proposals()->create($proposal_upgrade);
+        }
+
         return redirect()->route('admin.processes.index');
     }
 
@@ -327,10 +338,6 @@ class Edit extends Component
                 'string',
                 'required'
             ],
-            'kpis.*.name' => [
-                'string',
-                'required'
-            ],
             'kpis.*.description' => [
                 'string',
                 'nullable'
@@ -342,6 +349,57 @@ class Edit extends Component
             'kpis.*.ubication_data' => [
                 'string',
                 'nullable'
+            ],
+            'upgrades_proposals' => [
+                'array'
+            ],
+            'upgrades_proposals.*.description' => [
+                'string',
+                'nullable'
+            ],
+            'upgrades_proposals.*.status_id' => [
+                'integer',
+                'exists:upgrade_proposals_states,id',
+                'nullable',
+            ],
+            'upgrades_proposals.*.deadline' => [
+                'nullable',
+                'date_format:' . config('project.date_format'),
+            ],
+            'attachments.*.mediaCollections.attachment_src' => [
+                'array',
+                'nullable',
+            ],
+            'attachments.*.mediaCollections.attachment_src.*.id' => [
+                'integer',
+                'exists:media,id',
+            ],
+            'attachments.*.mediaCollections.attachment_src.*.mime_type' => [
+                'string',
+                Rule::in([
+                    'text/plain',
+                    'text/html',
+                    'text/css',
+                    // ... otras opciones ...
+                    'application/pdf',
+                    'application/zip',
+                    'application/json',
+                    'application/xml',
+                    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                    // ... otras opciones ...
+                    'image/jpeg',
+                    'image/png',
+                    'image/gif',
+                    // ... otras opciones ...
+                    'audio/mpeg',
+                    'audio/wav',
+                    'audio/ogg',
+                    // ... otras opciones ...
+                    'video/mp4',
+                    'video/webm',
+                    'video/ogg',
+                    // ... otras opciones ...
+                ]),
             ],
         ];
     }
@@ -361,6 +419,7 @@ class Edit extends Component
         $this->listsForFields['frecuency']          = RisksControlsFrecuency::pluck('name', 'id')->toArray();
         $this->listsForFields['method']             = RisksControlsMethod::pluck('name', 'id')->toArray();
         $this->listsForFields['type']               = RisksControlsType::pluck('name', 'id')->toArray();
+        $this->listsForFields['upgrades_proposals_states'] = UpgradeProposalsState::pluck('name', 'id')->toArray();
 
         $this->listsForFields['category']           = AttachmentsCategory::pluck('name', 'id')->toArray();
 
@@ -441,6 +500,9 @@ class Edit extends Component
         if ($model == 'attachments') {
             $last_id = array_key_last($this->attachments);
             $this->dispatchBrowserEvent('reApplyDropzone_' . $last_id);
+        }else if($model == 'upgrades_proposals'){
+            $last_id = array_key_last($this->upgrades_proposals);
+            $this->dispatchBrowserEvent('reApplyTimePicker_'.$last_id);
         }
     }
 

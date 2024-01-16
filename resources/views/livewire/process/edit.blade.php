@@ -352,6 +352,57 @@
             {{ trans('global.cancel') }}
         </a>
     </div>
+
+    @php
+        $name = 'Propuesta de mejora';
+        $plural_name = 's';
+        $list = $upgrades_proposals;
+        $list_name = 'upgrades_proposals';
+    @endphp
+
+    <div class="card-xs">
+        @php
+            $card_id = str_replace('.', '-', ($in ?? '') . ($list_name ?? ''));
+        @endphp
+        <div class="card-header-xs"
+            onclick="show_hide('card-body-{{ $card_id }}' , 'arrow-collapsable-{{ $card_id }}')">
+            {{ $name . ($plural_name ?? 's') }}
+            <div class="card-icon-container">
+                <i id="arrow-collapsable-{{ $card_id }}" class="fas fa-chevron-down card-icon rotate-0"></i>
+            </div>
+        </div>
+
+        <div class="card-body-xs block" id="card-body-{{ $card_id }}">
+            @foreach ($list as $in => $item)
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <div class="flex items-center {{ $errors->has("$list_name.$in.name") ? 'invalid' : '' }}">
+                            <label class="text-gray-600 pr-2"
+                                for="{{ $list_name }}_{{ $in }}_name">{{ $name }}
+                                N°{{ $in + 1 }}</label>
+                        </div>
+                    </div>
+                    <div class="card-body-xs">
+                        @include('admin.processes-upgrade-proposal.partials.clean', [
+                            'aditional_name' => ' Propuesta de mejora',
+                            'list_name' => "upgrades_proposals.$in",
+                        ])
+                    </div>
+                    <div class="flex items-center m-2 {{ $errors->has("$list_name.$in.name") ? 'invalid' : '' }}">
+                        <a href="#" class="btn btn-danger m-2"
+                            wire:click.prevent="remove_to_model({{ '"' . $list_name . '"' . ',' . $in }})">Eliminar
+                            {{ $name }}</a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        <div class="mt-4">
+            <button class="px-4 py-2 text-sm font-medium btn btn-indigo"
+                wire:click.prevent="add_to_model( '{{ $list_name }}' )">+ Agregar
+                {{ $name }}</button>
+        </div>
+    </div>
+
     @include('livewire.process.partials.clean')
     @php
         $name = 'actividad';
