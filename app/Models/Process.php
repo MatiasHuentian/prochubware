@@ -64,6 +64,11 @@ class Process extends Model
         'end_date',
     ];
 
+    public function scopeAllWith($query){
+        return $query;
+    }
+
+
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
