@@ -6,6 +6,12 @@
     display: none;
 }
 
+@import "theme.css";
+@import "~select2/dist/css/select2.min.css";
+@import "select.css";
+@import "~dropzone/dist/dropzone.css";
+@import "~flatpickr/dist/flatpickr.min.css";
+
  /* >>Versión del jetstream */
 /* @import "theme.css";
 @import "~select2/dist/css/select2.min.css";

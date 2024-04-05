@@ -28,9 +28,9 @@
 
     <noscript>You need to enable JavaScript to run this app.</noscript>
 
-    <div id="app">
+    <div id="app" x-data="{ isOpen: false }">
         <x-sidebar />
-        <div class="relative md:ml-64 bg-blueGray-50 min-h-screen">
+        <div class="relative bg-blueGray-50 min-h-screen" :class="isOpen ? 'md:ml-64' : 'md:ml-20'">
             <x-nav />
 
             <div class="relative bg-awesome-purple md:pt-32 pb-32 pt-12">

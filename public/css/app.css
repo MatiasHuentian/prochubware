@@ -2132,6 +2132,11 @@ select {
 	--tw-scale-y: 1;
 	transform: var(--tw-transform);
 }
+.scale-0 {
+	--tw-scale-x: 0;
+	--tw-scale-y: 0;
+	transform: var(--tw-transform);
+}
 .transform {
 	transform: var(--tw-transform);
 }
@@ -3071,6 +3076,10 @@ select {
 
 	.md\:ml-64 {
 		margin-left: 16rem;
+	}
+
+    .md\:ml-20 {
+		margin-left: 5rem;
 	}
 
 	.md\:block {
