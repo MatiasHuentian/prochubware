@@ -37,9 +37,22 @@
         Loading...
     </div>
 
+
     <div class="overflow-hidden">
-        <div class="overflow-x-auto">
-            <table class="table table-index w-full">
+        <div id="scroll-controls" class="flex justify-between w-full px-4 py-2 mt-4">
+            <button id="scroll-left" class="flex items-center btn btn-info text-white px-4 py-2 rounded-lg focus:outline-none">
+                <i class="fas fa-chevron-left mr-2"></i> <!-- Icono de flecha hacia la izquierda -->
+                Desplazar a la izquierda
+            </button>
+            <button id="scroll-right" class="flex items-center btn btn-info text-white px-4 py-2 rounded-lg focus:outline-none">
+                Desplazar a la derecha
+                <i class="fas fa-chevron-right ml-2"></i> <!-- Icono de flecha hacia la derecha -->
+            </button>
+        </div>
+
+
+        <div class="overflow-x-auto" id="table-container">
+            <table class="table table-index w-full" id="data-table">
                 <thead>
                     <tr>
                         <th class="w-9">
@@ -56,10 +69,10 @@
                             {{ trans('cruds.process.fields.owner') }}
                             @include('components.table.sort', ['field' => 'owner.name'])
                         </th>
-                        <th>
+                        {{-- <th>
                             {{ trans('cruds.user.fields.email') }}
                             @include('components.table.sort', ['field' => 'owner.email'])
-                        </th>
+                        </th> --}}
                         <th>
                             {{ trans('cruds.process.fields.dependency') }}
                             @include('components.table.sort', ['field' => 'dependency.name'])
@@ -101,7 +114,7 @@
                                     <span class="badge badge-relationship">{{ $process->owner->name ?? '' }}</span>
                                 @endif
                             </td>
-                            <td>
+                            {{-- <td>
                                 @if ($process->owner)
                                     <a class="link-light-blue" href="mailto:{{ $process->owner->email ?? '' }}">
                                         <i class="far fa-envelope fa-fw">
@@ -109,7 +122,7 @@
                                         {{ $process->owner->email ?? '' }}
                                     </a>
                                 @endif
-                            </td>
+                            </td> --}}
                             <td>
                                 @if ($process->dependency)
                                     <span
@@ -176,6 +189,7 @@
                 </tbody>
             </table>
         </div>
+
     </div>
 
     <div class="card-body">
@@ -193,8 +207,42 @@
     </div>
 </div>
 
+@push('styles')
+    <style>
+        #scroll-controls {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        #scroll-controls button {
+            margin: 0 5px;
+            padding: 5px 50px;
+            font-size: 14px;
+        }
+    </style>
+@endpush
+
 @push('scripts')
     <script>
+        $(document).ready(function() {
+            // Handler para desplazarse a la izquierda
+            $('#scroll-left').click(function() {
+                var leftPos = $('#table-container').scrollLeft();
+                $('#table-container').animate({
+                    scrollLeft: leftPos - 100
+                }, 300);
+            });
+
+            // Handler para desplazarse a la derecha
+            $('#scroll-right').click(function() {
+                var leftPos = $('#table-container').scrollLeft();
+                $('#table-container').animate({
+                    scrollLeft: leftPos + 100
+                }, 300);
+            });
+        });
+
+
         Livewire.on('confirm', e => {
             if (!confirm("{{ trans('global.areYouSure') }}")) {
                 return
